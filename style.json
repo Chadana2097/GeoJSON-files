@@ -1,0 +1,52 @@
+{
+  "version": 8,
+  "name": "Traffic Analysis - Graduated Styling",
+  "metadata": {
+    "maputnik:renderer": "mbgljs",
+    "maputnik:sources": {},
+    "maputnik:layers": [],
+    "maputnik:zoom": 14,
+    "maputnik:center": [11.567917, 48.148221],
+    "maputnik:pitch": 0,
+    "maputnik:bearing": 0
+  },
+  "sources": {
+    "traffic-tiles": {
+      "type": "vector",
+      "tiles": ["https://pmtiles-url-here/traffic_analysis.pmtiles/{z}/{x}/{y}.pbf"],
+      "minzoom": 12,
+      "maxzoom": 18
+    }
+  },
+  "sprite": "",
+  "glyphs": "https://fonts.openmaptiles.org/{fontstack}/{range}.pbf",
+  "layers": [
+    {
+      "id": "traffic-lines",
+      "type": "line",
+      "source": "traffic-tiles",
+      "source-layer": "traffic_analysis",
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round"
+      },
+      "paint": {
+        "line-width": 5,
+        "line-color": [
+          "step",
+          ["get", "Join_Count"],
+          "#66b2ff",
+          26,
+          "#0066cc",
+          46,
+          "#00aa00",
+          76,
+          "#ff8c00",
+          168,
+          "#c80000"
+        ],
+        "line-opacity": 0.8
+      }
+    }
+  ]
+}

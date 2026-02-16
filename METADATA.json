@@ -1,0 +1,202 @@
+{
+  "project": "Traffic Analysis Vector Tiles",
+  "generatedDate": "2026-02-16",
+  "source": {
+    "file": "traffic_Analysis_WFL1.geojson",
+    "format": "GeoJSON FeatureCollection",
+    "crs": "EPSG:4326",
+    "geometryType": "LineString",
+    "featureCount": 37,
+    "fileSizeKB": 26.5
+  },
+  "processing": {
+    "tool": "tippecanoe",
+    "version": "2.49.0",
+    "command": "tippecanoe -o traffic_analysis.mbtiles -z 18 -Z 12 -l traffic_analysis traffic_Analysis_WFL1.geojson",
+    "parameters": {
+      "maxZoom": 18,
+      "minZoom": 12,
+      "layerName": "traffic_analysis",
+      "compressionFormat": "pbf"
+    }
+  },
+  "mbtiles": {
+    "file": "traffic_analysis.mbtiles",
+    "format": "MBTiles (SQLite)",
+    "fileSizeKB": 70,
+    "metadata": {
+      "name": "traffic_analysis.mbtiles",
+      "description": "traffic_analysis.mbtiles",
+      "version": "2",
+      "type": "overlay",
+      "format": "pbf",
+      "bounds": "11.563795,48.145769,11.572054,48.152648",
+      "center": "11.567917,48.148221",
+      "minzoom": 12,
+      "maxzoom": 18
+    }
+  },
+  "pmtiles": {
+    "file": "traffic_analysis.pmtiles",
+    "format": "PMTiles v3",
+    "fileSizeKB": 70,
+    "compression": "zstd",
+    "tileFormat": "pbf",
+    "minZoom": 12,
+    "maxZoom": 18
+  },
+  "vectorTileLayer": {
+    "sourceLayer": "traffic_analysis",
+    "geometryType": "LineString",
+    "attributes": [
+      {
+        "name": "Join_Count",
+        "type": "number",
+        "min": 2,
+        "max": 263,
+        "description": "Classification attribute for graduated styling"
+      },
+      {
+        "name": "OBJECTID",
+        "type": "number",
+        "min": 1,
+        "max": 37
+      },
+      {
+        "name": "Name",
+        "type": "string",
+        "examples": ["Location 1 - Location 1", "Location 1 - Location 2"]
+      },
+      {
+        "name": "OriginID",
+        "type": "number",
+        "min": 1,
+        "max": 10
+      },
+      {
+        "name": "DestinationID",
+        "type": "number",
+        "min": 1,
+        "max": 31
+      },
+      {
+        "name": "DestinationRank",
+        "type": "number",
+        "min": 1,
+        "max": 29
+      },
+      {
+        "name": "Total_Kilometers",
+        "type": "number",
+        "min": 0.114,
+        "max": 0.659
+      },
+      {
+        "name": "Total_WalkTime",
+        "type": "number",
+        "min": 1.364,
+        "max": 7.908
+      }
+    ]
+  },
+  "styling": {
+    "type": "Mapbox/MapLibre",
+    "styleFile": "style.json",
+    "layerType": "line",
+    "properties": {
+      "lineWidth": 5,
+      "lineOpacity": 0.8,
+      "lineJoin": "round",
+      "lineCap": "round"
+    },
+    "classification": {
+      "type": "stepped",
+      "attribute": "Join_Count",
+      "breaks": [
+        {
+          "min": 2,
+          "max": 25,
+          "color": "#66b2ff",
+          "colorName": "Light Blue"
+        },
+        {
+          "min": 26,
+          "max": 45,
+          "color": "#0066cc",
+          "colorName": "Dark Blue"
+        },
+        {
+          "min": 46,
+          "max": 75,
+          "color": "#00aa00",
+          "colorName": "Green"
+        },
+        {
+          "min": 76,
+          "max": 167,
+          "color": "#ff8c00",
+          "colorName": "Orange"
+        },
+        {
+          "min": 168,
+          "max": 263,
+          "color": "#c80000",
+          "colorName": "Red"
+        }
+      ]
+    }
+  },
+  "mapCenter": {
+    "longitude": 11.567917,
+    "latitude": 48.148221,
+    "recommendedZoom": 14
+  },
+  "spatialExtent": {
+    "north": 48.152648,
+    "south": 48.145769,
+    "east": 11.572054,
+    "west": 11.563795
+  },
+  "hosting": {
+    "pmtilesUrl": "https://yourusername.github.io/your-repo/traffic_analysis.pmtiles",
+    "styleJsonUrl": "https://yourusername.github.io/your-repo/style.json",
+    "sourceLayerName": "traffic_analysis",
+    "tileFormat": "pmtiles://<url>/{z}/{x}/{y}.pbf",
+    "vcMapConfigExample": {
+      "type": "VectorTilesLayer",
+      "name": "Traffic Analysis",
+      "url": "https://yourusername.github.io/your-repo/style.json",
+      "minZoom": 12,
+      "maxZoom": 18,
+      "visible": true
+    }
+  },
+  "tools": {
+    "tippecanoe": {
+      "version": "2.49.0",
+      "purpose": "GeoJSON to MBTiles conversion",
+      "installationLinux": "sudo apt-get install tippecanoe",
+      "installationWSL": "wsl -d Ubuntu bash -c \"sudo apt-get install tippecanoe\""
+    },
+    "tileBased": {
+      "tool": "tile-join",
+      "version": "bundled with tippecanoe",
+      "purpose": "MBTiles to PMTiles conversion",
+      "command": "tile-join -o output.pmtiles -zstd input.mbtiles"
+    },
+    "pmtiles": {
+      "version": "4.4.0",
+      "purpose": "PMTiles format specifications and tooling",
+      "installationNode": "npm install -g pmtiles"
+    }
+  },
+  "validations": {
+    "pmtilesFormat": "V3 with zstd compression",
+    "tileExtent": "4096 (standard web mercator)",
+    "attributeIntegrity": "All 37 features encoded",
+    "geometryPreservation": "LineString coordinates preserved",
+    "performanceOptimized": true,
+    "corsCompatible": true,
+    "cacheableTiles": true
+  }
+}
