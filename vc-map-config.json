@@ -12,7 +12,13 @@
   "style": {
     "stroke": true,
     "fill": false,
-    "strokeColor": [0, 102, 204, 255],
+    "strokeColor": ["step", ["get", "Join_Count"],
+      "#66b2ff",
+      26, "#0066cc",
+      46, "#009933",
+      76, "#ff9900",
+      168, "#cc0000"
+    ],
     "strokeWidth": 2
   }
 }
