@@ -1,6 +1,5 @@
 {
-  "name": "Traffic Analysis",
-  "title": "Traffic Analysis with Graduated Classification",
+  "name": "Traffic Analysis Tiles",
   "type": "VectorTileLayer",
   "tileProvider": {
     "type": "MVTTileProvider",
@@ -8,65 +7,5 @@
   },
   "minZoom": 12,
   "maxZoom": 18,
-  "visible": true,
-  "style": {
-    "type": "line",
-    "layout": {
-      "line-cap": "round",
-      "line-join": "round"
-    },
-    "paint": {
-      "line-width": 5,
-      "line-opacity": 0.8,
-      "line-color": [
-        "step",
-        ["get", "Join_Count"],
-        "#66b2ff",
-        26,
-        "#0066cc",
-        46,
-        "#00aa00",
-        76,
-        "#ff8c00",
-        168,
-        "#c80000"
-      ]
-    }
-  },
-  "classification": {
-    "attribute": "Join_Count",
-    "type": "graduated",
-    "classes": [
-      {
-        "label": "2-25",
-        "range": [2, 25],
-        "color": "#66b2ff",
-        "description": "Very Low"
-      },
-      {
-        "label": "26-45",
-        "range": [26, 45],
-        "color": "#0066cc",
-        "description": "Low"
-      },
-      {
-        "label": "46-75",
-        "range": [46, 75],
-        "color": "#00aa00",
-        "description": "Medium"
-      },
-      {
-        "label": "76-167",
-        "range": [76, 167],
-        "color": "#ff8c00",
-        "description": "High"
-      },
-      {
-        "label": "168-263",
-        "range": [168, 263],
-        "color": "#c80000",
-        "description": "Very High"
-      }
-    ]
-  }
+  "visible": true
 }
