@@ -5,7 +5,14 @@
     "type": "MVTTileProvider",
     "url": "https://chadana2097.github.io/GeoJSON-files/tiles/{z}/{x}/{y}.pbf"
   },
+  "sourceLayer": "traffic_analysis",
   "minZoom": 12,
   "maxZoom": 18,
-  "visible": true
+  "visible": true,
+  "style": {
+    "stroke": true,
+    "fill": false,
+    "strokeColor": [0, 102, 204, 255],
+    "strokeWidth": 2
+  }
 }
