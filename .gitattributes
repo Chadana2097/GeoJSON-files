@@ -1,0 +1,2 @@
+* text=auto
+*.pbf -diff -filter -merge -text
