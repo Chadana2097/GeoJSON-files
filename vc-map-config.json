@@ -1,0 +1,11 @@
+{
+  "name": "Traffic Analysis Tiles",
+  "type": "VectorTileLayer",
+  "tileProvider": {
+    "type": "MVTTileProvider",
+    "url": "https://chadana2097.github.io/GeoJSON-files/tiles/{z}/{x}/{y}.pbf"
+  },
+  "minZoom": 12,
+  "maxZoom": 18,
+  "visible": true
+}
